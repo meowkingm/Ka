@@ -95,6 +95,10 @@ Deploy **KanhaMusic** in under 60 seconds on your favorite cloud provider:
 
   # 4. Compile and Run
   CGO_ENABLED=1 go build -v -trimpath -ldflags="-w -s" -o app ./cmd/app/
+  # Note: If your VPS has low RAM (e.g., 1GB) and the build fails with 'signal: killed' (OOM),
+  # add '-p 1' to the go build command to reduce memory usage during compilation:
+  # CGO_ENABLED=1 go build -p 1 -v -trimpath -ldflags="-w -s" -o app ./cmd/app/
+
   ./app
   ```
 
